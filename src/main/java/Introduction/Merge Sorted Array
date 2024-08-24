@@ -1,0 +1,46 @@
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
+    int arr[m+n];
+    int count1 = 0;
+    int count2 = 0;
+    
+        if(n != 0){
+    for(int i = 0; i < m+n; i++){
+
+        if(count1 < m){
+        if(nums1[count1] == 0){
+            nums1[count1] = 100;
+        }}
+        if(count2 < n){
+        if(nums2[count2] == 0){
+           nums2[count2] = 100;
+        }}
+            if(nums1[count1] <= nums2[count2] && count1 < m){
+                arr[i] = nums1[count1];
+                printf("From 1, To %d : %d added!\n",i,arr[i]);
+                count1++;
+            }
+            else if(nums1[count1] > nums2[count2]  && count2 < n){
+                arr[i] = nums2[count2];
+                printf("From 2, To %d : %d added!\n",i,arr[i]);
+                count2++;
+            }
+        
+        if(count1 >= m && count2 < n){
+                arr[i] = nums2[count2];
+                printf("!!From 2, To %d : %d added!\n",i,arr[i]);
+                count2++;
+        }    
+        else if (count2 >= n && count1 < m){
+                arr[i] = nums1[count1];
+                printf("!!From 1, To %d : %d added!\n",i,arr[i]);
+                count1++;
+        }
+                
+    }
+           
+    
+    for(int i = 0; i < nums1Size; i++){
+        nums1[i] = arr[i];
+    }
+        }
+}
