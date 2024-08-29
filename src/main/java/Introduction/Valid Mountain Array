@@ -1,0 +1,50 @@
+bool validMountainArray(int* arr, int arrSize){
+    bool increasing = true;
+    int ct = 0;
+    
+    if (arrSize <= 1){
+        printf("Line 6 false");
+        return false;}
+        
+    do{
+        if(ct == arrSize-1){
+            return false;
+        }
+        if(arr[ct] == arr[ct+1]){
+            return false; 
+        }
+        
+        if(arr[ct+1] - arr[ct] > 0){
+            printf("%d to %d is increasing [ct: %d]\n", arr[ct], arr[ct+1],ct);
+            ct++;
+        }
+        else{
+            if(ct == 0){
+                printf("Line 22 false");
+                return false;
+            }
+            printf("%d Reached Peak! [ct:%d]\n",arr[ct],ct);
+            ct++;
+            increasing = false;
+            break;
+        }
+    } while (increasing == true || ct < arrSize);
+    
+
+
+    
+    for (int i = ct; i < arrSize; i++){
+        if(arr[ct-1] - arr[ct] > 0){
+            ct++;
+        }
+    }
+    
+    
+    
+    if(ct == arrSize)
+        return true;
+    else{
+        printf("Line 45 false");
+        return false;}
+        
+}
